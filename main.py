@@ -42,8 +42,8 @@ import matplotlib.pyplot as plt
 #This function is used separately to Run Tests on Frameworks to determine length of Timesteps
 def Time_Step_Tests(Framework_RC, Framework_Name):
 
-    Res_Size = [100, 500, 1000, 5000]
-    # add 250, 750, 3000, 4000
+    Res_Size = [100, 200, 300, 400]
+    # add 100, 500, 750, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 1000
     #do 100 montocarlo runs
     
 
