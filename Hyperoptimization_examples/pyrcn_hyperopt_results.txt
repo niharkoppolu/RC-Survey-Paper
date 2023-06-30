@@ -1,0 +1,62 @@
+Importing all necessary packages
+
+INFO:numexpr.utils:NumExpr defaulting to 8 threads.
+Completed all imports
+
+
+PyRCN framework: Starting Hyperparameter optimization Algorithm
+
+1. Loading dataset
+
+2. Defining initial ESN model
+
+3. Defining the parametes in the 2 different searches that will be used to determine the optimized parameters
+
+4. Performing the search to optimize the parameters
+
+
+Fitting 5 folds for each of 5 candidates, totalling 25 fits
+Hyperparameter optimization is COMPLETE
+SequentialSearchCV(estimator=ESNRegressor(input_to_node=InputToNode(bias_scaling=0,
+                                                                    input_scaling=0.9391590725340228),
+                                          node_to_node=NodeToNode(leakage=0.7,
+                                                                  spectral_radius=0.26665775943482317),
+                                          regressor=IncrementalRegression(),
+                                          requires_sequence=False),
+                   searches=[('step1',
+                              <class 'sklearn.model_selection._search.RandomizedSearchCV'>,
+                              {'input_scaling': <scip...
+                               'n_iter': 200, 'n_jobs': -1,
+                               'scoring': make_scorer(mean_squared_error, greater_is_better=False)}),
+                             ('step2',
+                              <class 'sklearn.model_selection._search.GridSearchCV'>,
+                              {'leakage': [0.2, 0.4, 0.7, 0.9, 1.0]},
+                              {'cv': TimeSeriesSplit(gap=0, max_train_size=None, n_splits=5, test_size=None),
+                               'n_jobs': -1,
+                               'scoring': make_scorer(mean_squared_error, greater_is_better=False),
+                               'verbose': 5})])
+[CV 2/5] END ......................leakage=0.2;, score=-0.002 total time=   0.6s
+[CV 4/5] END ......................leakage=0.4;, score=-0.000 total time=   0.7s
+[CV 5/5] END ......................leakage=0.9;, score=-0.000 total time=   0.6s
+[CV 1/5] END ......................leakage=0.4;, score=-0.001 total time=   0.6s
+[CV 2/5] END ......................leakage=0.7;, score=-0.000 total time=   0.6s
+[CV 2/5] END ......................leakage=0.9;, score=-0.000 total time=   0.8s
+[CV 5/5] END ......................leakage=0.2;, score=-0.005 total time=   0.7s
+[CV 4/5] END ......................leakage=0.7;, score=-0.000 total time=   0.7s
+[CV 1/5] END ......................leakage=1.0;, score=-0.000 total time=   0.6s
+[CV 1/5] END ......................leakage=0.2;, score=-0.004 total time=   0.6s
+[CV 1/5] END ......................leakage=0.7;, score=-0.000 total time=   0.6s
+[CV 3/5] END ......................leakage=0.9;, score=-0.000 total time=   0.8s
+[CV 3/5] END ......................leakage=0.2;, score=-0.001 total time=   0.9s
+[CV 1/5] END ......................leakage=0.9;, score=-0.000 total time=   0.7s
+[CV 4/5] END ......................leakage=1.0;, score=-0.000 total time=   0.5s
+[CV 2/5] END ......................leakage=0.4;, score=-0.000 total time=   0.7s
+[CV 5/5] END ......................leakage=0.7;, score=-0.000 total time=   0.8s
+[CV 2/5] END ......................leakage=1.0;, score=-0.000 total time=   0.6s
+[CV 4/5] END ......................leakage=0.2;, score=-0.001 total time=   0.6s
+[CV 5/5] END ......................leakage=0.4;, score=-0.000 total time=   0.7s
+[CV 4/5] END ......................leakage=0.9;, score=-0.000 total time=   0.5s
+[CV 5/5] END ......................leakage=1.0;, score=-0.000 total time=   0.3s
+[CV 3/5] END ......................leakage=0.4;, score=-0.000 total time=   0.7s
+[CV 3/5] END ......................leakage=0.7;, score=-0.000 total time=   0.9s
+[CV 3/5] END ......................leakage=1.0;, score=-0.000 total time=   0.6s
