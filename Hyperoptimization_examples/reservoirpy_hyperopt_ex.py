@@ -129,3 +129,5 @@ print("6. DIsplay Hyperparameters")
 from reservoirpy.hyper import plot_hyperopt_report
 
 fig = plot_hyperopt_report(hyperopt_config["exp"], ("lr", "sr"), metric="r2")
+
+fig.show()
