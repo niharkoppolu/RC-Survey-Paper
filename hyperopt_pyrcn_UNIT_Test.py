@@ -10,4 +10,4 @@ from pyRCN_class import pyRCN
 reservoir = pyRCN(100) #This automatically calls the hyperoptimization function called by pyRCN_class constructor
 
 
-print("Printing optimized values\n\n\n", reservoir.esn.get_params)
+print("Printing pyrcn optimized values\n\n\n", reservoir.esn.get_params)

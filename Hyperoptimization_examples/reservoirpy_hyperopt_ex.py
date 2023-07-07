@@ -93,7 +93,7 @@ hyperopt_config = {
         "N": ["choice", 500],             # the number of neurons is fixed to 500
         "sr": ["loguniform", 1e-2, 2],   # the spectral radius is log-uniformly distributed between 1e-2 and 10
         "lr": ["loguniform", 1e-3, 1],  # idem with the leaking rate, from 1e-3 to 1
-        "iss": ["choice", 0.9],           # the input scaling is fixed
+        "iss": ["loguniform", 1e-2, 2],           # the input scaling is fixed
         "ridge": ["choice", 1e-7],        # and so is the regularization parameter.
         "seed": ["choice", 1234]          # an other random seed for the ESN initialization
     }

@@ -1,0 +1,27 @@
+Reservoirpy Tests
+
+
+100 Node Reservoir Hyperparameter Values: {'N': 0, 'iss': 0.04213094044474674, 'lr': 0.6053395945549399, 'ridge': 0, 'seed': 0, 'sr': 0.22694378756425196}
+Average Timestep: 0.0028006712230215208, std_dev timestep: 0.0004168400857879597
+Average Training Time: 0.3892932999999914, std_dev training: 0.0579407719245264
+
+200 Node Reservoir Hyperparameter Values: {'N': 0, 'iss': 0.04213094044474674, 'lr': 0.6053395945549399, 'ridge': 0, 'seed': 0, 'sr': 0.22694378756425196}
+Average Timestep: 0.0030251666666667155, std_dev timestep: 0.0002481924966974699
+Average Training Time: 0.41747300000000676, std_dev training: 0.03425056454425084
+
+
+
+
+
+________________________________________________________________________________
+pyRCN Tests
+
+
+100 Node Reservoir Hyperparameter Values: {'bias_scaling': 0, 'bias_shift': 0.0, 'hidden_layer_size': 100, 'input_activation': 'tanh', 'input_scaling': 0.1411143570485064, 'input_shift': 0.0, 'k_in': None, 'predefined_bias_weights': None, 'predefined_input_weights': None, 'random_state': 42, 'sparsity': 1.0, 'bidirectional': False, 'k_rec': None, 'leakage': 0.9, 'predefined_recurrent_weights': None, 'reservoir_activation': 'tanh', 'spectral_radius': 0.34172112869519133, 'alpha': 1e-05}
+Average Timestep: 0.0004969333999999889, std_dev timestep: 3.795427234042449e-05
+Average Training Time: 0.993866799999978, std_dev training: 0.07590854468084897
+
+200 Node Reservoir Hyperparameter Values: {'bias_scaling': 0, 'bias_shift': 0.0, 'hidden_layer_size': 200, 'input_activation': 'tanh', 'input_scaling': 0.059263436073065494, 'input_shift': 0.0, 'k_in': None, 'predefined_bias_weights': None, 'predefined_input_weights': None, 'random_state': 42, 'sparsity': 1.0, 'bidirectional': False, 'k_rec': None, 'leakage': 0.9, 'predefined_recurrent_weights': None, 'reservoir_activation': 'tanh', 'spectral_radius': 0.38148191154319444, 'alpha': 1e-05}
+Average Timestep: 0.0006672653500000138, std_dev timestep: 0.00013304393862442537
+Average Training Time: 1.3345307000000275, std_dev training: 0.2660878772488507
+

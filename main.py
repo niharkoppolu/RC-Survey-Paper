@@ -39,10 +39,15 @@ import matplotlib.pyplot as plt
 
 #___________________________________________________________________________________________________________
 #___________________________________________________________________________________________________________
+#This is used to store ALL IMPORTANT DATA PERTAINING TO THE TESTS RUNS
+imp_data_file = open("imp_data.txt",'w')
+
+#____________________________________________
+
 #This function is used separately to Run Tests on Frameworks to determine length of Timesteps
 def Time_Step_Tests(Framework_RC, Framework_Name):
 
-    Res_Size = [100, 200, 300, 400]
+    Res_Size = [100, 200]
     # add 100, 500, 750, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 1000
     #do 100 montocarlo runs
     
@@ -62,13 +67,24 @@ def Time_Step_Tests(Framework_RC, Framework_Name):
 
     for res_size in Res_Size:
         
+        #May want to delete
+        #_________________
         print("\n\n\n\n_______________________________________________________________________________________________")
         print("_______________________________________________________________________________________________")
         print(res_size, " Node Reservoir:\n\n")
         reservoir = Framework_RC(res_size)
+        print("Hyperparameter values: ", reservoir.best_params)
+        #___________________
+
+        imp_data_file.write(str(res_size) + " Node Reservoir Hyperparameter Values: " + str(reservoir.best_params))
+
         reservoir.Find_Min_Timesteps()
         #link to methods for finding Execution Time: https://pynative.com/python-get-execution-time-of-program/
         reservoir.Time_Training()
+
+        imp_data_file.write("\nAverage Timestep: " + str(reservoir.av_timestep) + ", std_dev timestep: " + str(reservoir.stand_dev_timestep))
+        imp_data_file.write("\nAverage Training Time: " + str(reservoir.av_training_time) + ", std_dev training: " + str(reservoir.stand_dev_train_time) + "\n\n")
+
 
         Av_Timestep_List.append(reservoir.av_timestep)
         Timestep_Error.append(reservoir.stand_dev_timestep)
@@ -97,7 +113,7 @@ def Time_Step_Tests(Framework_RC, Framework_Name):
 
     ax.set_xlabel('Reservoir Size')
     ax.set_ylabel('Time per Trainstep (Sec')
-    ax.set_title('ReservoirPy: Training Timestep Length')
+    ax.set_title(Framework_Name + ' Graph 1: Training Timestep Length')
 
     plt.savefig(Framework_Name + '_Graph 1:_time_step_plot.png')
     
@@ -114,7 +130,7 @@ def Time_Step_Tests(Framework_RC, Framework_Name):
 
     ax.set_xlabel('Reservoir Size')
     ax.set_ylabel('Total Train Time (Sec)')
-    ax.set_title('Graph 2 ReservoirPy: Total Training Time Length')
+    ax.set_title(Framework_Name + ' Graph 2: Total Training Time Length')
 
 
     plt.show
@@ -131,20 +147,14 @@ Framework_dict = {
   "pyRCN": pyRCN,
 }
 
+imp_data_file.write("Reservoirpy Tests\n\n\n")
 print("\n\nStart ReservoirPy Tests\n\n")
-#This completes reservoirpy tests
 Time_Step_Tests(Framework_dict["ReservoirPy"], 'ReservoirPy')
 
-#Need to Do some debugging of pyRCN code
+
+imp_data_file.write("\n\n\n\n________________________________________________________________________________\npyRCN Tests\n\n\n")
 print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n_______________________________________________________________________________________________")
 print("_______________________________________________________________________________________________")
 print("\n\nStart pyRCN Tests\n\n")
 Time_Step_Tests(Framework_dict["pyRCN"], 'pyRCN')
 
-"""
-#Testing pyRCN: Not done yet - Need to Find way how to set Reservoir sizes
-print("\n\nTesting pyRCN\n\n")
-pyRCN_test = pyRCN(100)
-pyRCN_test.Train()
-pyRCN_test.Test()
-"""
