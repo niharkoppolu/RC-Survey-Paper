@@ -91,7 +91,7 @@ hyperopt_config = {
     "instances_per_trial": 3,        # how many random ESN will be tried with each sets of parameters
     "hp_space": {                    # what are the ranges of parameters explored
         "N": ["choice", 500],             # the number of neurons is fixed to 500
-        "sr": ["loguniform", 1e-2, 10],   # the spectral radius is log-uniformly distributed between 1e-2 and 10
+        "sr": ["loguniform", 1e-2, 2],   # the spectral radius is log-uniformly distributed between 1e-2 and 10
         "lr": ["loguniform", 1e-3, 1],  # idem with the leaking rate, from 1e-3 to 1
         "iss": ["choice", 0.9],           # the input scaling is fixed
         "ridge": ["choice", 1e-7],        # and so is the regularization parameter.
@@ -109,7 +109,7 @@ print("4. Prepare Data")
 with open(f"{hyperopt_config['exp']}.config.json", "w+") as f:
     json.dump(hyperopt_config, f)
 
-train_len = 1000
+train_len = 500
 
 X_train = X[:train_len]
 y_train = X[1 : train_len + 1]
@@ -123,11 +123,19 @@ print("5. Launch Hyperopt")
 from reservoirpy.hyper import research
 
 best = research(objective, dataset, f"{hyperopt_config['exp']}.config.json", ".")
+print(best[0])
+print("same index,check if dictionary")
+print(best[0]['sr'])
+print("\n\n2nd index")
+print(best[1])
+print("full tuple")
+print(best)
 
 
 print("6. DIsplay Hyperparameters")
 from reservoirpy.hyper import plot_hyperopt_report
 
 fig = plot_hyperopt_report(hyperopt_config["exp"], ("lr", "sr"), metric="r2")
+
 
 fig.show()

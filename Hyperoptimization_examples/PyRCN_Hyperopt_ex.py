@@ -41,7 +41,6 @@ searches = [('step1', RandomizedSearchCV, step_1_params, kwargs_1),
 
 # Perform the search
 print("4. Performing the search to optimize the parameters\n\n")
-# Define optimization workflow
 esn_opti = SequentialSearchCV(esn, searches).fit(X_train.reshape(-1, 1), y_train)
 print("Hyperparameter optimization is COMPLETE")
 print(esn_opti)

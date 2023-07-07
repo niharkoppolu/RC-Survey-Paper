@@ -74,6 +74,13 @@ class Reservoir_Framework(ABC): #must pass in ABC parameter to make class abstra
         pass
 
 #abstract methods
+
+    #This function is ONLY meant to return the values of the Optimized hyperparams
+    #It DOES NOT create a Reservoir Computer
+    @abstractmethod
+    def Optimize_Hyperparam(self):
+        pass
+
     @abstractmethod
     def Train(self):
         pass
